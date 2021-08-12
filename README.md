@@ -61,12 +61,21 @@ With Chakra, there is no need to include CSS anymore.
 [tailwind](https://tailwindcss.com/) is another option. (we dont need it in case Chakra is used.)
 
 ## charting and visualization
-The most poluar frontend charting libraries are echarts, highchart, ant g2.  we prefer ant g2 (bizcharts is a react encapsulation building on ant g2) due to this rich functionality and flexible grammar driven rendering technology.
+The most poluar frontend open source charting libraries are [echarts](https://echarts.apache.org/en/index.html), [highcharts](https://www.highcharts.com/), [ant g2](https://g2.antv.vision/en).  
+
+we prefer ant g2 ([bizcharts](https://bizcharts.net/) is a react encapsulation building on ant g2) due to this rich functionality and flexible grammar driven rendering technology. While, g2/bizcharts has it's own problem, the code splitting and chart update are issues we found, we may consider wrap our own chart component based on g2 or using some low level tools such as airbnb [vizx](https://airbnb.io/visx/) to build our charting components.
+
+Vizx is a collection of expressive, low-level visualization primitives for React, you can think it as [d3](https://d3js.org/) for react.
 
 ## table
+we may need to build our own data table to meet the complex requirement for data analytic applications.
 
 ## i18n
+[react-i18next](https://github.com/i18next/react-i18next) is a powerful internationalization framework for React / React Native which is based on [i18next](https://www.i18next.com/)
 
 ## http call
+With react, we usually use [Axios](https://github.com/axios/axios), [jQeury Ajax](https://api.jquery.com/jquery.ajax/) or `window.fetch` to send http request to backend, we prefer Axios here.
+
 
 ## websocket
+Web API does have [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) support, while some other libraires are available as well, such as [sockio](https://socket.io/), [sockjs](https://github.com/sockjs), [react-use-websocket](https://github.com/robtaussig/react-use-websocket).  we will evaluate which one to use.
