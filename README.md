@@ -15,8 +15,8 @@ run `npm install --save-dev snowpack` to install snowpack
 
 ## monorepo
 A Monorepository is an architectural concept, which means, instead of managing multiple repositories, keep all isolated code parts inside one repository. Keep in mind the word `isolated` means that monorepo has nothing in common with monolithic apps. You can keep many kinds of logical apps inside one repo; for example, a website and its iOS app.
-There are lots of monorepo tools in JS world which is not surprizing, (lerna)[https://github.com/lerna/lerna] is the one we chose. Lerna (named after the home of Hydra, the multi-headed beast) is a “tool for managing JavaScript projects with multiple packages”.
-Other tools like (nx)[https://nx.dev/react], (rush)[https://rushjs.io/] can also support monorepo development and more can refer to this (article)[https://blog.bitsrc.io/11-tools-to-build-a-monorepo-in-2021-7ce904821cc2].
+There are lots of monorepo tools in JS world which is not surprizing, [lerna](https://github.com/lerna/lerna) is the one we chose. Lerna (named after the home of Hydra, the multi-headed beast) is a “tool for managing JavaScript projects with multiple packages”.
+Other tools like [nx](https://nx.dev/react), [rush](https://rushjs.io/) can also support monorepo development and more can refer to this [article](https://blog.bitsrc.io/11-tools-to-build-a-monorepo-in-2021-7ce904821cc2).
 
 ## test
 
