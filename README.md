@@ -23,27 +23,50 @@ There are lots of monorepo tools in JS world which is not surprizing, [lerna](ht
 Other tools like [nx](https://nx.dev/react), [rush](https://rushjs.io/) can also support monorepo development and more can refer to this [article](https://blog.bitsrc.io/11-tools-to-build-a-monorepo-in-2021-7ce904821cc2).
 
 ## test
+Unit test tool [Jest](https://jestjs.io/) is a JavaScript Testing Framework with a focus on simplicity.
+For e2e test, [cypress.io](https://www.cypress.io/) is the one we chose.  
 
 ## lint
+js lint are well sovled problems, [eslint](https://eslint.org/) is the one.
 
 # architecture
 
 ## preference of typescript
+As a best practic, we prefer all frontend code is written in [typescript](https://www.typescriptlang.org/). this [article](https://serokell.io/blog/why-typescript) provides a good explaination about why and there are lots of others for sure.
 
 ## ui lib and framework
+There are lots of debating in the community about which JS framework is the best, [react](https://reactjs.org/), [vue](https://cn.vuejs.org/index.html), and [angular](https://angularjs.org/) are the most popular and there are some new players like [Svelte](https://svelte.dev/) which has been used more and more in frontend development.  Some articles about comparison of these options can be found: [1](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/) [2](https://athemes.com/guides/angular-vs-react-vs-vue/) [3](https://blog.bitsrc.io/react-vs-sveltejs-the-war-between-virtual-and-real-dom-59cbebbab9e9)
+
+These are all good choice for building frontend application, considering the maturity of community, we choise react, and due to the high cost to switch between UI framework, we should make this serious.
+
+
+Based on react, we woiuld like to have a thin, flexible layer that support the quick, efficient development,  [Chakra](https://chakra-ui.com/) is a good choice based on our past experience. Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications. With Chakara, we can easily develop new customized component, no need to include CSS to support style and theme.
 
 ## state management
+State management is the most challenging work in react world.  There are lots of solutions as well. [Redux](https://redux.js.org/), [Recoil](https://recoiljs.org/) and [React hooks](https://reactjs.org/docs/hooks-intro.html) are most poluar. You can find the (article)[https://dev.to/workshub/state-management-battle-in-react-2021-hooks-redux-and-recoil-2am0] to explain the difference among these tools.
 
-## comunication
+We choice Recoil as our state management solution.
 
 ## routing
+Routing is the ability to move between different parts of an application when a user enters a URL or clicks an element (link, button, icon, image etc) within the application. [eactrouter](https://reactrouter.com/) is used to support flexible routing in web application.
 
 ## micro-frontend
+micro-frontend are designed to works in micro-service architecture where the frontend app doesn't need to be physically bundled together and can dynamically load from remote site.  It will increase the overall complexity.  we dont prefer to introduce this at the initial phase of application deveopment, we may introduce it once the application has grown big enough.  [single spa](https://single-spa.js.org/) is the tool we want to use to support micro-frontend.
+
+## comunication
+In a simple web application, component can communicate with each other through state, while, after introducing micro-frontend, some more sophisticated mechanisim should be invovled such as in [rxjs](https://rxjs.dev/), we can use [observable](https://rxjs.dev/guide/observable) pattern to support communication between different remote comonents.
 
 ## css
+With Chakra, there is no need to include CSS anymore.
+[tailwind](https://tailwindcss.com/) is another option. (we dont need it in case Chakra is used.)
 
 ## charting and visualization
+The most poluar frontend charting libraries are echarts, highchart, ant g2.  we prefer ant g2 (bizcharts is a react encapsulation building on ant g2) due to this rich functionality and flexible grammar driven rendering technology.
 
 ## table
 
+## i18n
 
+## http call
+
+## websocket
