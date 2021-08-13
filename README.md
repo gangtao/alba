@@ -48,7 +48,7 @@ State management is the most challenging work in react world.  There are lots of
 We choice Recoil as our state management solution.
 
 ## routing
-Routing is the ability to move between different parts of an application when a user enters a URL or clicks an element (link, button, icon, image etc) within the application. [eactrouter](https://reactrouter.com/) is used to support flexible routing in web application.
+Routing is the ability to move between different parts of an application when a user enters a URL or clicks an element (link, button, icon, image etc) within the application. [reactrouter](https://reactrouter.com/) is used to support flexible routing in web application.
 
 ## micro-frontend
 micro-frontend are designed to works in micro-service architecture where the frontend app doesn't need to be physically bundled together and can dynamically load from remote site.  It will increase the overall complexity.  we dont prefer to introduce this at the initial phase of application deveopment, we may introduce it once the application has grown big enough.  [single spa](https://single-spa.js.org/) is the tool we want to use to support micro-frontend.
@@ -71,11 +71,11 @@ Vizx is a collection of expressive, low-level visualization primitives for React
 we may need to build our own data table to meet the complex requirement for data analytic applications.
 
 ## i18n
-[react-i18next](https://github.com/i18next/react-i18next) is a powerful internationalization framework for React / React Native which is based on [i18next](https://www.i18next.com/)
+[react-i18next](https://github.com/i18next/react-i18next) is a powerful internationalization framework for React / React Native which is based on [i18next](https://www.i18next.com/). Antoher option is react-intl provided by [formatjs](https://formatjs.io/)
 
 ## http call
-With react, we usually use [Axios](https://github.com/axios/axios), [jQeury Ajax](https://api.jquery.com/jquery.ajax/) or `window.fetch` to send http request to backend, we prefer Axios here.
+With react, we usually use [Axios](https://github.com/axios/axios), [jQeury Ajax](https://api.jquery.com/jquery.ajax/) or `window.fetch` to send http request to backend, we prefer vanilla API over Axios [1](https://blog.logrocket.com/axios-or-fetch-api/).
 
 
 ## websocket
-Web API does have [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) support, while some other libraires are available as well, such as [sockio](https://socket.io/), [sockjs](https://github.com/sockjs), [react-use-websocket](https://github.com/robtaussig/react-use-websocket).  we will evaluate which one to use.
+Web API does have [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) support, while some other libraires are available as well, such as [sockio](https://socket.io/), [sockjs](https://github.com/sockjs), [react-use-websocket](https://github.com/robtaussig/react-use-websocket).  we prefer to use the vanilla API provided by most of the morden browser.
