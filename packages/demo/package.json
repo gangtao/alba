@@ -1,22 +1,92 @@
 {
-  "name": "alba-demo",
+  "name": "@alba/alba-demo",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "> TODO: description",
+  "main": "src/index.jsx",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
-    "snowpack": "^3.3.7"
+    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-named-asset-import": "^0.3.7",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.0",
+    "babel-preset-react-app": "^10.0.0",
+    "bfj": "^7.0.2",
+    "react-dev-utils": "^11.0.3",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
+    "webpack": "^4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-manifest-plugin": "2.2.0",
+    "workbox-webpack-plugin": "^5.1.4",
+    "pnp-webpack-plugin": "1.6.4",
+    "html-webpack-plugin": "4.5.0",
+    "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "mini-css-extract-plugin": "0.11.3",
+    "optimize-css-assets-webpack-plugin": "5.0.4",
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-loader": "3.0.0",
+    "postcss-normalize": "8.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "5.0.2",
+    "eslint": "^7.11.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.9.2",
+    "eslint-webpack-plugin": "^2.5.2",
+    "url-loader": "4.1.1",
+    "css-loader": "4.3.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.0.5",
+    "file-loader": "6.1.1",
+    "react-refresh": "^0.8.3",
+    "style-loader": "1.3.0"
   },
   "dependencies": {
+    "@alba/ggchart": "^0.1.1",
     "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "author": "gangtao <gang.tao@outlook.com>",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git+https://github.com/gangtao/alba.git",
+  "bugs": {
+    "url": "https://github.com/gangtao/alba/issues"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

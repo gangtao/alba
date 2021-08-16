@@ -1,11 +1,11 @@
-# `@alba/demo`
+# `@alba/ggchart`
 
 > TODO: description
 
 ## Usage
 
 ```
-const demo = require('@alba/demo');
+const ggchart = require('@alba/ggchart');
 
 // TODO: DEMONSTRATE API
 ```

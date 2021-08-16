@@ -1,0 +1,44 @@
+{
+  "name": "@alba/ggchart",
+  "version": "0.1.1",
+  "description": "> TODO: description",
+  "author": "gangtao <gang.tao@outlook.com>",
+  "license": "ISC",
+  "main": "src/ggchart.jsx",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gangtao/alba.git"
+  },
+  "scripts": {
+  },
+  "bugs": {
+    "url": "https://github.com/gangtao/alba/issues"
+  },
+  "dependencies": {
+    "bizcharts": "4.1.10",
+    "react-sparklines": "^1.7.0"
+  },
+  "devDependencies": {},
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

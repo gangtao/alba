@@ -1,6 +1,8 @@
 import * as React from "react"
 import { ChakraProvider, Heading, Divider, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
+import Viz from './components/Viz'
+
 export default function App({ Component }) {
   console.log("this is a chakra app");
   return (
@@ -22,31 +24,31 @@ export default function App({ Component }) {
 
         <TabPanels>
           <TabPanel>
-            <p>one!</p>
+            <p>State Management</p>
           </TabPanel>
           <TabPanel>
-            <p>two!</p>
+            <p>Routing</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>Communication</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <Viz/>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>Table</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>Dashboard</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>HTTP Request</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>Web Socket</p>
           </TabPanel>
           <TabPanel>
-            <p>three!</p>
+            <p>I18n</p>
           </TabPanel>
         </TabPanels>
       </Tabs>

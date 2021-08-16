@@ -4,10 +4,10 @@
   "description": "alba (moon flower) is a frontend repo that integrate the build tools and frontend stacks",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/gangtao/alba#readme",
   "devDependencies": {
-    "babel-loader-lerna-cra": "^0.1.3",
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "snowpack": "^3.8.6"
   }
 }
