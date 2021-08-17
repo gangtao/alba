@@ -1,10 +1,8 @@
 import CodeMirror from '@uiw/react-codemirror';
-//import 'codemirror/keymap/sublime';
-//import 'codemirror/theme/monokai.css';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/monokai.css';
 
-export default function Coder({ }) {
-    const code = 'const a = 0;';
-
+export default function Coder({ code }) {
     return (
         <CodeMirror
             value={code}

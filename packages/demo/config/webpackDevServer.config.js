@@ -7,7 +7,10 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const redirectServedPath = require('react-dev-utils/redirectServedPathMiddleware');
 const paths = require('./paths');
+const path = require('path');
 const getHttpsConfig = require('./getHttpsConfig');
+
+const apiMocker = require('mocker-api');
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;
@@ -103,16 +106,16 @@ module.exports = function (proxy, allowedHost) {
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
     proxy,
     before(app, server) {
-      // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
-      // middlewares before `redirectServedPath` otherwise will not have any effect
-      // This lets us fetch source contents from webpack for the error overlay
-      app.use(evalSourceMapMiddleware(server));
-      // This lets us open files from the runtime error overlay.
-      app.use(errorOverlayMiddleware());
-
-      if (fs.existsSync(paths.proxySetup)) {
-        // This registers user provided middleware for proxy reasons
-        require(paths.proxySetup)(app);
+      console.log("check if mock is on");
+      console.log(process.env.MOCK);
+      if (process.env.MOCK) {
+        console.log("start mock server");
+        apiMocker(app, path.resolve('mock/mocker'), {
+          proxy: {
+            '/repos/(.*)': 'https://api.github.com/'
+          },
+          changeHost: true
+        })
       }
     },
     after(app) {
