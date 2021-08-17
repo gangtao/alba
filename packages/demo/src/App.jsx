@@ -1,8 +1,11 @@
-import * as React from "react"
-import { ChakraProvider, Heading, Divider, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
+import * as React from "react";
+import { ChakraProvider, Heading, Divider, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
-import Viz from './components/Viz'
-import Runner from './components/CodeRunner'
+import Viz from './pages/Viz';
+import Fetch from './pages/Fetch';
+import State from './pages/State';
+import Routing from './pages/Routing';
+import Table from './pages/Table';
 
 export default function App({ Component }) {
   console.log("this is a chakra app");
@@ -10,11 +13,10 @@ export default function App({ Component }) {
     <ChakraProvider>
       <Heading>Alba Demo</Heading>
       <Divider />
-      <Tabs defaultIndex={6} isLazy>
+      <Tabs defaultIndex={2} isLazy>
         <TabList>
           <Tab>State Management</Tab>
           <Tab>Routing</Tab>
-          <Tab>Communication</Tab>
           <Tab>Visualization</Tab>
           <Tab>Table</Tab>
           <Tab>Dashboard</Tab>
@@ -25,24 +27,22 @@ export default function App({ Component }) {
 
         <TabPanels>
           <TabPanel>
+            <State />
           </TabPanel>
           <TabPanel>
-            <p>Routing</p>
+            <Routing />
           </TabPanel>
           <TabPanel>
-            <p>Communication</p>
+            <Viz />
           </TabPanel>
           <TabPanel>
-            <Viz/>
-          </TabPanel>
-          <TabPanel>
-            <p>Table</p>
+            <Table />
           </TabPanel>
           <TabPanel>
             <p>Dashboard</p>
           </TabPanel>
           <TabPanel>
-            <Runner/>
+            <Fetch />
           </TabPanel>
           <TabPanel>
             <p>Web Socket</p>

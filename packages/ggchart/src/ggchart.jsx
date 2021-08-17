@@ -8,8 +8,6 @@ const padding = 'auto';
 class GGChart extends PureComponent {
 
   render() {
-    console.log("render ggchart element!");
-
     const { data, metadata, height, width } = this.props;
     const colors = ["#ca242d", "#cc6f12", "#13805b", "#1066d0"];
 
@@ -92,11 +90,7 @@ class GGChart extends PureComponent {
 
 export default function Visualization(props) {
   const { data, metadata, height, width } = props;
-
-  console.log("render visualization element!");
-
   if ( !metadata || ! metadata.dataType) {
-    console.log("render empty data!");
     return (<div/>);
   }
 

@@ -7,7 +7,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "dev-mock": "MOCK=true node scripts/mock-server.js"
+    "dev-mock": "MOCK=true node scripts/start.js"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
