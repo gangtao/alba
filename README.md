@@ -24,7 +24,10 @@ Other tools like [nx](https://nx.dev/react), [rush](https://rushjs.io/) can also
 
 ## test
 Unit test tool [Jest](https://jestjs.io/) is a JavaScript Testing Framework with a focus on simplicity.
-For e2e test, [cypress.io](https://www.cypress.io/) is the one we chose.  
+For e2e test, [cypress.io](https://www.cypress.io/) is the one we chose. 
+
+## api mock
+Mocking backend REST API is part of testability that frontend development will need, [mocker-api](https://github.com/jaywcjlove/mocker-api) can help here. (previously called webpack-api-mocker)
 
 ## lint
 js lint are well sovled problems, [eslint](https://eslint.org/) is the one.

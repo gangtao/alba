@@ -1,10 +1,11 @@
 {
-  "name": "@alba/ggchart",
-  "version": "0.1.1",
+  "name": "@alba/coder",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "gangtao <gang.tao@outlook.com>",
+  "homepage": "https://github.com/gangtao/alba/tree/main/packages/coder#readme",
   "license": "ISC",
-  "main": "src/ggchart.jsx",
+  "main": "src/coder.jsx",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -19,27 +20,13 @@
     "type": "git",
     "url": "git+https://github.com/gangtao/alba.git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
   "bugs": {
     "url": "https://github.com/gangtao/alba/issues"
   },
   "dependencies": {
-    "bizcharts": "4.1.10",
-    "react-sparklines": "^1.7.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@uiw/react-codemirror": "^3.1.0"
   }
 }

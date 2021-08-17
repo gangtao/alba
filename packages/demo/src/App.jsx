@@ -2,6 +2,10 @@ import * as React from "react"
 import { ChakraProvider, Heading, Divider, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
 import Viz from './components/Viz'
+import Fetch from './components/Fetch'
+
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/monokai.css';
 
 export default function App({ Component }) {
   console.log("this is a chakra app");
@@ -9,7 +13,7 @@ export default function App({ Component }) {
     <ChakraProvider>
       <Heading>Alba Demo</Heading>
       <Divider />
-      <Tabs>
+      <Tabs defaultIndex={6} isLazy>
         <TabList>
           <Tab>State Management</Tab>
           <Tab>Routing</Tab>
@@ -24,7 +28,7 @@ export default function App({ Component }) {
 
         <TabPanels>
           <TabPanel>
-            <p>State Management</p>
+            <Fetch/>
           </TabPanel>
           <TabPanel>
             <p>Routing</p>
@@ -42,7 +46,7 @@ export default function App({ Component }) {
             <p>Dashboard</p>
           </TabPanel>
           <TabPanel>
-            <p>HTTP Request</p>
+            <Fetch/>
           </TabPanel>
           <TabPanel>
             <p>Web Socket</p>
