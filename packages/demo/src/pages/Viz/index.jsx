@@ -36,7 +36,7 @@ export default function Viz({ }) {
     const grammarToObject = function() {
         const items = grammar.split(" ");
         const result = {};
-        items.forEach((item:string) => {
+        items.forEach((item) => {
             const kv = item.split("=");
             result[kv[0]] = kv[1];
         });
@@ -68,7 +68,7 @@ export default function Viz({ }) {
 
     };
 
-    const handleChange = function (instance: CodeMirror.Editor, change: CodeMirror.EditorChangeLinkedList[]) {
+    const handleChange = function (instance, change) {
         setGrammar(instance.getValue());
     }
 

@@ -1,0 +1,59 @@
+{
+  "name": "@alba/dashboard",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": "gangtao <gang.tao@outlook.com>",
+  "license": "ISC",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gangtao/alba.git"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "entrybuild": "node scripts/entrybuild.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "dev-mock": "MOCK=true node scripts/start.js"
+  },
+  "bugs": {
+    "url": "https://github.com/gangtao/alba/issues"
+  },
+  "dependencies": {
+    "json-variables": "^10.1.0",
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-grid-layout": "^1.2.5",
+    "react-use": "^17.2.4",
+    "react-vega": "^7.4.3",
+    "recoil": "^0.3.1",
+    "systemjs": "^6.9.0",
+    "typescript": "^4.3.2",
+    "vega": "^5.20.2",
+    "vega-lite": "^5.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

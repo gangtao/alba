@@ -28,7 +28,7 @@ export default function Runner({ code }) {
         )
     };
 
-    const handleChange = function(instance: CodeMirror.Editor, change: CodeMirror.EditorChangeLinkedList[]) {
+    const handleChange = function(instance, change) {
         setValue(instance.getValue());
     }
 
