@@ -7,5 +7,9 @@ module.exports = merge(
   style.loadCSS(),
   {
     mode: 'development',
-    devtool: 'inline-source-map'
+    devtool: 'inline-source-map',
+    output: {
+      filename: 'static/js/[name].[contenthash:8].js',
+      chunkFilename: 'static/js/[name].[contenthash:8].js',
+    }
   });

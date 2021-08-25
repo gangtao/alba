@@ -4,9 +4,10 @@
   "description": "> TODO: description",
   "main": "src/index.jsx",
   "scripts": {
-    "dev": "webpack --config ./webpack/webpack.dev.js --stats-error-details",
+    "dev": "webpack --config ./webpack/webpack.dev.js",
     "prod": "webpack --config ./webpack/webpack.prod.js",
-    "start": "PORT=3000 MOCK=on webpack-dev-server --config ./webpack/webpack.dev.js"
+    "start": "PORT=3000 MOCK=on webpack-dev-server --config ./webpack/webpack.dev.js",
+    "websocket" : "node ./mock/websocket.js"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -27,7 +28,8 @@
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "websocket": "^1.0.34"
   },
   "dependencies": {
     "@alba/coder": "^0.1.0",

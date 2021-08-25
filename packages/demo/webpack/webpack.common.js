@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const apiMocker = require('mocker-api');
+const WebSocketServer = require('websocket').server;
 
 const path = require("path");
 
@@ -55,7 +56,7 @@ module.exports = {
                         '/repos/(.*)': 'https://api.timeplus.io/'
                     },
                     changeHost: true
-                })
+                });
             }
         },
     }
