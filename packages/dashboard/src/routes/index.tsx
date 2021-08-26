@@ -14,8 +14,8 @@ const BasicRoute = () => {
           <Switch>
             <Route exact path='/' component={App}>
             </Route>
-            <Route exact path='/visx' component={Visx} >
-            </Route>
+            {/* <Route exact path='/visx' component={Visx} >
+            </Route> */}
           </Switch>
         </HashRouter>
     );

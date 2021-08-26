@@ -23,10 +23,9 @@ module.exports = {
         alias: {
             '@dataSources': path.resolve(PATHS.app, './dataSources'),
             '@dashboard': path.resolve(PATHS.app),
-            '/form': path.resolve(PATHS.app, './form'),
-            '/layout': path.resolve(PATHS.app, './layout'),
-            '/visualization': path.resolve(PATHS.app, './visualization'),
-            '/dataSources': path.resolve(PATHS.app, './dataSources'),
+            '@visualization': path.resolve(PATHS.app, './visualization'),
+            '@form': path.resolve(PATHS.app,'./form'),
+            '@layout': path.resolve(PATHS.app,'./layout')
         },
         fallback: {
             assert: false,

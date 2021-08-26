@@ -81,12 +81,9 @@ export const dataSelector = selectorFamily({
         const { enginePath, options } = configWithToken;
 
         let module;
-        try {
-            // this rely on user's build tool dataSources should be in user's local folder whose paranet folder has alias of @dashboard
-            module =  await import(`@dashboard/dataSources/${enginePath}.js`);
-        } catch (error) {
-            module =  await import(`/dataSources/${enginePath}.js`);
-        }
+        
+        // this rely on user's build tool dataSources should be in user's local folder whose paranet folder has alias of @dashboard
+        module =  await import(`@dashboard/dataSources/${enginePath}`);
         const { default: dataSourceEngine } = module;
         const data = await dataSourceEngine(options);
         if(isObservable(data)){
