@@ -35,7 +35,7 @@ export default function Runner({ code }) {
         const logs = useRecoilValue(logState);
         return (
             <Container h="400" bg="#272822">
-                {logs.map( (log) => {
+                {logs.map((log) => {
                     return <p>{log}</p>
                 })}
             </Container>
@@ -55,7 +55,12 @@ export default function Runner({ code }) {
                 }
             }
             const runnerValue = codeValue.replaceAll("console", "runnerConsole");
-            eval(runnerValue);
+
+            try {
+                eval('"use strict"; (async function(){ ' + runnerValue + '})()');
+            } catch (error) {
+                runnerConsole.log(error.toString());
+            }
         };
         return <Button colorScheme="blue" size="xs" onClick={onClick}>Run</Button>
     };
