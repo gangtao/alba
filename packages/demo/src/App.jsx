@@ -3,66 +3,53 @@ import { ChakraProvider, Heading, Divider, Tabs, TabList, TabPanels, Tab, TabPan
 
 import Viz from './pages/Viz';
 import Fetch from './pages/Fetch';
-import State from './pages/State';
-import Routing from './pages/Routing';
 import Table from './pages/Table';
+import Dashboard from './pages/Dashboard';
 import WebSocket from "./pages/WebSocket";
 
 import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
+    RecoilRoot
 } from 'recoil';
 
 export default function App({ Component }) {
-  console.log("this is a chakra app");
-  return (
-    <RecoilRoot>
-    <ChakraProvider>
-      <Heading>Alba Demo</Heading>
-      <Divider />
-      <Tabs defaultIndex={2} isLazy>
-        <TabList>
-          <Tab>State Management</Tab>
-          <Tab>Routing</Tab>
-          <Tab>Visualization</Tab>
-          <Tab>Table</Tab>
-          <Tab>Dashboard</Tab>
-          <Tab>HTTP Request</Tab>
-          <Tab>Web Socket</Tab>
-          <Tab>I18n</Tab>
-        </TabList>
+    return (
+        <RecoilRoot>
+            <ChakraProvider>
+                <Heading>Alba Demo</Heading>
+                <Divider />
+                <Tabs defaultIndex={0} isLazy>
+                    <TabList>
+                        <Tab>Visualization</Tab>
+                        <Tab>HTTP Request</Tab>
+                        <Tab>Web Socket</Tab>
+                        <Tab>I18n</Tab>
+                        <Tab>Table</Tab>
+                        <Tab>Dashboard</Tab>
 
-        <TabPanels>
-          <TabPanel>
-            <State />
-          </TabPanel>
-          <TabPanel>
-            <Routing />
-          </TabPanel>
-          <TabPanel>
-            <Viz />
-          </TabPanel>
-          <TabPanel>
-            <Table />
-          </TabPanel>
-          <TabPanel>
-            <p>Dashboard</p>
-          </TabPanel>
-          <TabPanel>
-            <Fetch />
-          </TabPanel>
-          <TabPanel>
-            <WebSocket/>
-          </TabPanel>
-          <TabPanel>
-            <p>I18n</p>
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
-    </ChakraProvider>
-    </RecoilRoot>
-  )
+                    </TabList>
+
+                    <TabPanels>
+                        <TabPanel>
+                            <Viz />
+                        </TabPanel>
+                        <TabPanel>
+                            <Fetch />
+                        </TabPanel>
+                        <TabPanel>
+                            <WebSocket />
+                        </TabPanel>
+                        <TabPanel>
+                            <p>I18n</p>
+                        </TabPanel>
+                        <TabPanel>
+                            <Table />
+                        </TabPanel>
+                        <TabPanel>
+                            <Dashboard />
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </ChakraProvider>
+        </RecoilRoot>
+    )
 }

@@ -2,7 +2,6 @@ import * as React from "react"
 import { VStack, Box , Code} from "@chakra-ui/react"
 
 export default function Page({ children, introduction }) {
-    console.log("this is a viz component");
     return (
         <VStack
             spacing={2}

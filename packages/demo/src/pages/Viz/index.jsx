@@ -2,25 +2,56 @@ import * as React from "react";
 import { Container, Text, Button, VStack, HStack, Box } from "@chakra-ui/react"
 
 import Page from "../../components/Page";
-import Chart from '@alba/ggchart';
 
+import Chart from '@alba/ggchart';
 import Coder from '@alba/coder';
 
+import {
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+} from 'recoil';
+
 export default function Viz({ }) {
-    let [grammar, setGrammar] = React.useState('type=point position=sepal_width*sepal_length color=species shape=circle');
-    let [data, setData] = React.useState([]);
-    let [metadata, setMetaData] = React.useState({
-        dataSchema: [{ colName: "sepal_length", colType: "number" },
-        { colName: "sepal_width", colType: "number" },
-        { colName: "petal_length", colType: "number" },
-        { colName: "petal_width", colType: "number" },
-        { colName: "species", colType: "string" }],
-        dataType: "table",
-        queryType: "batch",
-        visualization: { color: "species", position: "sepal_width*sepal_length", shape: "circle", type: "point" }
+    const grammarState = atom({
+        key: 'vizGrammarState',
+        default: 'type=point position=sepal_width*sepal_length color=species shape=circle',
     });
 
-    const introduction = `grammar driven data visualization`;
+    const dataState = atom({
+        key: 'vizDataState',
+        default: [],
+    });
+
+    const metadataState = selector({
+        key: 'vizMetadataState',
+        get: ({ get }) => {
+            const grammar = get(grammarState);
+            let meta = {
+                dataSchema: [{ colName: "sepal_length", colType: "number" },
+                { colName: "sepal_width", colType: "number" },
+                { colName: "petal_length", colType: "number" },
+                { colName: "petal_width", colType: "number" },
+                { colName: "species", colType: "string" }],
+                dataType: "table",
+                queryType: "batch",
+                visualization : undefined
+            };
+
+            meta.visualization = grammarToObject(grammar);
+            return meta;
+
+        }
+    });
+
+    function GrammarBox() {
+        const [grammar, setGrammar] = useRecoilState(grammarState);
+        const onChange = function (instance, change) {
+            setGrammar(instance.getValue());
+        }
+        return <Coder code={grammar} onChange={onChange} />
+    }
 
     const parseJSON = function (json) {
         const data = json.map((row) => {
@@ -33,7 +64,7 @@ export default function Viz({ }) {
         return data;
     };
 
-    const grammarToObject = function() {
+    const grammarToObject = function (grammar) {
         const items = grammar.split(" ");
         const result = {};
         items.forEach((item) => {
@@ -43,34 +74,40 @@ export default function Viz({ }) {
         return result;
     };
 
-    const handleClick = function () {
-        const newMataData = metadata;
-        newMataData.visualization = grammarToObject();
-        setMetaData( newMataData);
+    function ShowButton() {
+        const [data, setData] = useRecoilState(dataState);
+        const onClick = function () {
+            // No need to get data everytime
+            const url = 'http://localhost:3000/api/data';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+            };
 
-        // No need to get data everytime
-        const url = 'http://localhost:3000/api/data';
-        const options = {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json;charset=UTF-8'
-            }
-        };
+            fetch(url, options).then(response => {
+                //console.log(response.status);
+                return response.json();
+            }).then(function (myJson) {
+                //console.log(myJson);
+                setData(parseJSON(myJson));
+            });
+        }
 
-        fetch(url, options).then(response => {
-            //console.log(response.status);
-            return response.json();
-        }).then(function (myJson) {
-            //console.log(myJson);
-            setData(parseJSON(myJson));
-        });
-
+        return (<Button colorScheme="blue" size="xs" onClick={onClick}>Get Data</Button>)
     };
 
-    const handleChange = function (instance, change) {
-        setGrammar(instance.getValue());
+
+    function Visualization() {
+        const data = useRecoilValue(dataState);
+        const metadata = useRecoilValue(metadataState);
+
+        return (<Chart data={data} metadata={metadata} height="400px"></Chart>);
     }
+
+    const introduction = `grammar driven data visualization`;
 
     return (
         <Page introduction={introduction}>
@@ -81,15 +118,15 @@ export default function Viz({ }) {
                     w="40%"
                 >
                     <Box h="400" bg="yellow.200">
-                        <Coder code={grammar} onChange={handleChange} />
+                        <GrammarBox />
                     </Box>
                     <Box h="10" >
-                        <Button colorScheme="blue" size="xs" onClick={handleClick}>Run</Button>
+                        <ShowButton />
                     </Box>
                 </VStack>
                 <VStack w="50%" spacing={2}>
                     <Box w="100%">
-                        <Chart data={data} metadata={metadata} height="400px"></Chart>
+                        <Visualization />
                     </Box>
                 </VStack>
             </HStack>
