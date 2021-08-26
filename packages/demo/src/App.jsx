@@ -6,6 +6,7 @@ import Fetch from './pages/Fetch';
 import State from './pages/State';
 import Routing from './pages/Routing';
 import Table from './pages/Table';
+import WebSocket from "./pages/WebSocket";
 
 import {
   RecoilRoot,
@@ -54,7 +55,7 @@ export default function App({ Component }) {
             <Fetch />
           </TabPanel>
           <TabPanel>
-            <p>Web Socket</p>
+            <WebSocket/>
           </TabPanel>
           <TabPanel>
             <p>I18n</p>

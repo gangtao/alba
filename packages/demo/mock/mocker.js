@@ -1,3 +1,4 @@
+
 const proxy = {
     'GET /api/user/1': { id: 1, username: 'kenny', sex: 60 },
     'GET /api/user': [
