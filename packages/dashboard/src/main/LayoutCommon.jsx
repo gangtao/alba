@@ -1,7 +1,6 @@
 import React from 'react';
 import { layoutAtom } from './store'
 import {useRecoilValue} from 'recoil';
-import regeneratorRuntime from "regenerator-runtime";
 
 const LayoutCommon = (props) => {
     const {enginePath, options} = useRecoilValue(layoutAtom);

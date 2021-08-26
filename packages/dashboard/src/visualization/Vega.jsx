@@ -11,15 +11,15 @@ const VegaGeneric = ({ data, options={idx:123} }) => {
   const ref = useRef();
   const [{width, height}, setDim] = useState({width:'', height:''});
   const debounceSetDim = debounce(200, setDim);
-  const resizeObserver = new ResizeObserver(() => {
-    debounceSetDim({
-      width: ref.current.parentNode.clientWidth*0.8,
-      height: ref.current.parentNode.clientHeight*0.8
-    })
-  });
 
   useEffect(()=>{
     if(ref.current){
+      const resizeObserver = new ResizeObserver(() => {
+        debounceSetDim({
+          width: ref.current.parentNode.clientWidth*0.8,
+          height: ref.current.parentNode.clientHeight*0.8
+        })
+      });
       resizeObserver.observe(ref.current.parentNode);
     }
     return ()=> resizeObserver.disconnect();

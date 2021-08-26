@@ -29,7 +29,9 @@
   },
   "dependencies": {
     "@visx/visx": "^1.7.0",
+    "esbuild-loader": "^2.15.1",
     "json-variables": "^10.1.0",
+    "path-to-regexp": "2.4.0",
     "prop-types": "^15.7.2",
     "ramda": "^0.27.1",
     "react": "^17.0.2",

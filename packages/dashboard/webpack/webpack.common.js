@@ -24,8 +24,8 @@ module.exports = {
             '@dataSources': path.resolve(PATHS.app, './dataSources'),
             '@dashboard': path.resolve(PATHS.app),
             '@visualization': path.resolve(PATHS.app, './visualization'),
-            '@form': path.resolve(PATHS.app,'./form'),
-            '@layout': path.resolve(PATHS.app,'./layout')
+            '@form': path.resolve(PATHS.app, './form'),
+            '@layout': path.resolve(PATHS.app, './layout')
         },
         fallback: {
             assert: false,
@@ -34,12 +34,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(ts|js)x?$/,
-                loader: 'babel-loader',
-                include: [PATHS.app, PATHS.packages],  // need include the dependant packages
-                exclude: [path.resolve(PATHS.root, 'node_modules')],
+                test: /\.(t|j)sx?$/,
+                loader: 'esbuild-loader',
                 options: {
-                    presets: ['@babel/preset-react', '@babel/preset-typescript', '@babel/preset-env']
+                    loader: 'tsx',  // Remove this if you're not using JSX
+                    target: 'es2015'  // Syntax to compile to (see options below for possible values)
                 }
             },
         ],

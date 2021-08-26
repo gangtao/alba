@@ -5,11 +5,12 @@ import { ParentSize } from '@visx/responsive';
 
 const LineChart = ({ data,options }) => {
   const other = options?.other
-  let datas = other ?  [ data[0], other] : data
+  let datas = other ?  [ data[0], other] : data;
   return (
     <ParentSize>
-      {({ width, height }) => 
-        <Line width={width} height={height} data={datas}/>
+      {({ width, height }) => {
+        return  <Line width={width} height={height} data={datas}/>
+      }
       }
     </ParentSize>
     
