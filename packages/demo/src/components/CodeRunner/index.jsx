@@ -1,36 +1,64 @@
 import * as React from "react"
-import { Container, Text, Button, VStack, HStack , Box} from "@chakra-ui/react"
+import { Container, Button, VStack, HStack, Box } from "@chakra-ui/react"
 
 import Coder from '@alba/coder';
 
+import {
+    atom,
+    useRecoilState,
+    useRecoilValue,
+} from 'recoil';
+
 export default function Runner({ code }) {
+    const codeState = atom({
+        key: 'codeState',
+        default: '',
+    });
 
-    let [value, setValue] = React.useState(code);
-    let [log, setLog] = React.useState([]);
+    const logState = atom({
+        key: 'logState',
+        default: [],
+    });
 
-    const runnerConsole = {
-        log : function(message) {
-            setLog([message]);
-        }
-    }
+    function CodeInput({ code }) {
+        const [value, setValue] = useRecoilState(codeState);
+        const onChange = (instance, change) => {
+            setValue(instance.getValue());
+        };
 
-    const handleClick = function() {
-        const runnerValue = value.replaceAll("console","runnerConsole");
-        //console.log("run code " + runnerValue);
-        eval(runnerValue);
-    };
-
-    const getLogs = function() {
-        const logs = log.map( (n) => JSON.stringify(n));
-        const logsText = logs.join('\n')
         return (
-            <Text>{logsText}</Text>
-        )
+            <Coder code={code} onChange={onChange} />
+        );
     };
 
-    const handleChange = function(instance, change) {
-        setValue(instance.getValue());
-    }
+    function CodeLog() {
+        const logs = useRecoilValue(logState);
+        return (
+            <Container h="400" bg="#272822">
+                {logs.map( (log) => {
+                    return <p>{log}</p>
+                })}
+            </Container>
+        );
+    };
+
+    function RunButton() {
+        const codeValue = useRecoilValue(codeState);
+        const [log, setLog] = useRecoilState(logState);
+
+        const onClick = () => {
+            const runnerConsole = {
+                logValue: [],
+                log: function (message) {
+                    runnerConsole.logValue = [...runnerConsole.logValue, JSON.stringify(message)];
+                    setLog(runnerConsole.logValue);
+                }
+            }
+            const runnerValue = codeValue.replaceAll("console", "runnerConsole");
+            eval(runnerValue);
+        };
+        return <Button colorScheme="blue" size="xs" onClick={onClick}>Run</Button>
+    };
 
     return (
         <HStack color="white">
@@ -40,14 +68,14 @@ export default function Runner({ code }) {
                 w="40%"
             >
                 <Box h="400" bg="yellow.200">
-                    <Coder code={code} onChange={handleChange}/>
-                </Box>  
+                    <CodeInput code={code} />
+                </Box>
                 <Box h="10" >
-                    <Button colorScheme="blue" size="xs" onClick={handleClick}>Run</Button>
-                </Box>   
+                    <RunButton />
+                </Box>
             </VStack>
             <VStack w="40%" spacing={2}>
-                <Container h="400" bg="#272822">{getLogs()}</Container>
+                <CodeLog />
                 <Box h="10" ></Box>
             </VStack>
         </HStack>

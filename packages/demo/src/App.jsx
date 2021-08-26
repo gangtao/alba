@@ -7,9 +7,18 @@ import State from './pages/State';
 import Routing from './pages/Routing';
 import Table from './pages/Table';
 
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+
 export default function App({ Component }) {
   console.log("this is a chakra app");
   return (
+    <RecoilRoot>
     <ChakraProvider>
       <Heading>Alba Demo</Heading>
       <Divider />
@@ -53,5 +62,6 @@ export default function App({ Component }) {
         </TabPanels>
       </Tabs>
     </ChakraProvider>
+    </RecoilRoot>
   )
 }
