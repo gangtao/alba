@@ -20,25 +20,28 @@
     "url": "git+https://github.com/gangtao/alba.git"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "entrybuild": "node scripts/entrybuild.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "dev-mock": "MOCK=true node scripts/start.js"
+    "dev": "webpack --config ./webpack/webpack.dev.js",
+    "prod": "webpack --config ./webpack/webpack.prod.js",
+    "start": "PORT=3000 MOCK=on webpack-dev-server --config ./webpack/webpack.dev.js"
   },
   "bugs": {
     "url": "https://github.com/gangtao/alba/issues"
   },
   "dependencies": {
+    "@visx/visx": "^1.7.0",
     "json-variables": "^10.1.0",
     "prop-types": "^15.7.2",
     "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-grid-layout": "^1.2.5",
+    "react-router-dom": "^5.2.0",
+    "react-spring": "^9.2.4",
     "react-use": "^17.2.4",
     "react-vega": "^7.4.3",
     "recoil": "^0.3.1",
+    "regenerator-runtime": "^0.13.9",
+    "rxjs": "^7.3.0",
     "systemjs": "^6.9.0",
     "typescript": "^4.3.2",
     "vega": "^5.20.2",

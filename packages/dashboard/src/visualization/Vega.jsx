@@ -7,7 +7,7 @@ const debounce = (ms , fn) => {
     timer = setTimeout(()=>{fn(...args)},ms); 
   }
 }
-const VegaGeneric = ({ data, options }) => {
+const VegaGeneric = ({ data, options={idx:123} }) => {
   const ref = useRef();
   const [{width, height}, setDim] = useState({width:'', height:''});
   const debounceSetDim = debounce(200, setDim);
@@ -17,6 +17,7 @@ const VegaGeneric = ({ data, options }) => {
       height: ref.current.parentNode.clientHeight*0.8
     })
   });
+
   useEffect(()=>{
     if(ref.current){
       resizeObserver.observe(ref.current.parentNode);
@@ -24,7 +25,7 @@ const VegaGeneric = ({ data, options }) => {
     return ()=> resizeObserver.disconnect();
   },[ref])
     useEffect(()=>{
-        let datas = JSON.parse ( JSON.stringify(data[0]))
+        let datas = JSON.parse ( JSON.stringify(data[0]||{}))
         if(datas.length){
           var vlSpec = {
             $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -34,12 +35,13 @@ const VegaGeneric = ({ data, options }) => {
             width, height,
             ...options
           };
-        
           // Embed the visualization in the container with id `vis`
-          vegaEmbed('#viz-root', vlSpec);
+          
+          const res = vegaEmbed(`#${options.idx}`, vlSpec);
+          return ()=> res.then(({finalize})=>finalize())
         }
-    },[width, height])
-    return <div id='viz-root' ref={ref} ></div>
+    },[width, height, data])
+    return <div id={`${options.idx}`} ref={ref} ></div>
 }
 
 export default VegaGeneric;

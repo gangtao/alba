@@ -7,10 +7,10 @@ const FormCommon = ({id, ...props}) => {
     const Form = React.lazy(async () => {
         try {
             // this rely on user's build tool form should be in user's local folder whose paranet folder has alias of @dashboard
-            const module =  await import(`../form/${enginePath}.js`);
+            const module =  await import(`@dashboard/form/${enginePath}.js`);
             return module
         } catch (error) {
-            const module =  await import(`../form/${enginePath}.js`);
+            const module =  await import(`/form/${enginePath}.js`);
             return module
         }
     });

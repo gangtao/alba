@@ -1,10 +1,10 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const parts = require('./webpack.part.js');
+const style = require('./webpack.style.js');
 
 module.exports = merge(
   common,
-  parts.loadCSS(),
+  style.loadCSS(),
   {
     mode: 'development',
     devtool: 'inline-source-map',
