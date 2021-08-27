@@ -1,0 +1,6 @@
+{
+  "uBezLx": {
+    "defaultMessage": "Today is {ts, date, ::yyyyMMdd}",
+    "description": "demo i18n"
+  }
+}

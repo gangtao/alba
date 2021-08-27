@@ -1,0 +1,6 @@
+{
+  "uBezLx": {
+    "defaultMessage": "今天是 {ts, date, ::yyyy年 MM月 dd日}",
+    "description": "demo i18n"
+  }
+}

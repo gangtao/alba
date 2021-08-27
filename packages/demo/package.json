@@ -7,13 +7,16 @@
     "dev": "webpack --config ./webpack/webpack.dev.js",
     "prod": "webpack --config ./webpack/webpack.prod.js",
     "start": "PORT=3000 MOCK=on webpack-dev-server --config ./webpack/webpack.dev.js",
-    "websocket": "node ./mock/websocket.js"
+    "websocket": "node ./mock/websocket.js",
+    "extract": "formatjs extract 'src/**/*.js*' --out-file lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
+    "compile": "formatjs compile lang/en.json --ast --out-file compiled-lang/en.json"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
+    "@formatjs/cli": "^4.2.33",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.1",
@@ -44,7 +47,8 @@
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-intl": "^5.20.10"
   },
   "author": "gangtao <gang.tao@outlook.com>",
   "license": "ISC",

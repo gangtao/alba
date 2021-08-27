@@ -6,12 +6,13 @@ import Fetch from './pages/Fetch';
 import Table from './pages/Table';
 import Dashboard from './pages/Dashboard';
 import WebSocket from "./pages/WebSocket";
+import I18n from "./pages/I18n";
 
 import {
     RecoilRoot
 } from 'recoil';
 
-export default function App({ Component }) {
+export default function App({ props }) {
     return (
         <RecoilRoot>
             <ChakraProvider>
@@ -39,7 +40,7 @@ export default function App({ Component }) {
                             <WebSocket />
                         </TabPanel>
                         <TabPanel>
-                            <p>I18n</p>
+                            <I18n locale="zh"/>
                         </TabPanel>
                         <TabPanel>
                             <Table />

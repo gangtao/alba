@@ -105,9 +105,7 @@ export default function WebSocketPage({ }) {
             queryType: "batch",
             visualization: { position: "time*m1", type: "interval"}
         };
-
         return (<Chart data={data} metadata={metadata} height="400px"></Chart>)
-        
     }
 
     const introduction = `chart with websocket data stream`;
