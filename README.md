@@ -29,6 +29,8 @@ For e2e test, [cypress.io](https://www.cypress.io/) is the one we chose.
 ## api mock
 Mocking backend REST API is part of testability that frontend development will need, [mocker-api](https://github.com/jaywcjlove/mocker-api) can help here. (previously called webpack-api-mocker)
 
+When mocking data, [Faker](https://github.com/marak/Faker.js/) can be used to simulat dummy data. 
+
 ## lint
 js lint are well sovled problems, [eslint](https://eslint.org/) is the one.
 
@@ -42,13 +44,12 @@ There are lots of debating in the community about which JS framework is the best
 
 These are all good choice for building frontend application, considering the maturity of community, we choise react, and due to the high cost to switch between UI framework, we should make this serious.
 
-
 Based on react, we woiuld like to have a thin, flexible layer that support the quick, efficient development,  [Chakra](https://chakra-ui.com/) is a good choice based on our past experience. Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications. With Chakara, we can easily develop new customized component, no need to include CSS to support style and theme.
 
 ## state management
 State management is the most challenging work in react world.  There are lots of solutions as well. [Redux](https://redux.js.org/), [Recoil](https://recoiljs.org/) and [React hooks](https://reactjs.org/docs/hooks-intro.html) are most poluar. You can find the article [[7]](https://dev.to/workshub/state-management-battle-in-react-2021-hooks-redux-and-recoil-2am0) to explain the difference among these tools.
 
-We choice Recoil as our state management solution.
+We choice Recoil as our state management solution.  As for data application, the state related to components are flexible and will be added/removed at run time.
 
 ## routing
 Routing is the ability to move between different parts of an application when a user enters a URL or clicks an element (link, button, icon, image etc) within the application. [reactrouter](https://reactrouter.com/) is used to support flexible routing in web application.
@@ -58,6 +59,8 @@ micro-frontend are designed to works in micro-service architecture where the fro
 
 ## comunication
 In a simple web application, component can communicate with each other through state, while, after introducing micro-frontend, some more sophisticated mechanisim should be invovled such as in [rxjs](https://rxjs.dev/), we can use [observable](https://rxjs.dev/guide/observable) pattern to support communication between different remote comonents.
+
+RxJS can help to build data streaming and responsive programming.
 
 ## css
 With Chakra, there is no need to include CSS anymore.
@@ -72,6 +75,9 @@ Vizx is a collection of expressive, low-level visualization primitives for React
 
 ## table
 we may need to build our own data table to meet the complex requirement for data analytic applications.
+
+## dashboard
+Dashboard is the key feature to build a low code/no code data platform. [React-Grid-Layout](https://github.com/react-grid-layout/react-grid-layout) can help to build flexible react based layout.
 
 ## i18n
 [react-i18next](https://github.com/i18next/react-i18next) is a powerful internationalization framework for React / React Native which is based on [i18next](https://www.i18next.com/). Antoher option is react-intl provided by [formatjs](https://formatjs.io/)

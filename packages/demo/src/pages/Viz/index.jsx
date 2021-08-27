@@ -88,10 +88,8 @@ export default function Viz({ }) {
             };
 
             fetch(url, options).then(response => {
-                //console.log(response.status);
                 return response.json();
             }).then(function (myJson) {
-                //console.log(myJson);
                 setData(parseJSON(myJson));
             });
         }
