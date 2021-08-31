@@ -88,3 +88,27 @@ With react, we usually use [Axios](https://github.com/axios/axios), [jQeury Ajax
 
 ## websocket
 Web API does have [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) support, while some other libraires are available as well, such as [sockio](https://socket.io/), [sockjs](https://github.com/sockjs), [react-use-websocket](https://github.com/robtaussig/react-use-websocket).  we prefer to use vanilla API provided by most of the morden browser.
+
+
+# quick start
+
+to run the project, [node](https://nodejs.org/en/) and [yarn](https://classic.yarnpkg.com/) are required. make sure install both to run the demo.
+
+to run the demo, you need run following commands
+```sh
+# at root directory of alba
+yarn
+
+# enter demo package where the demo code lives
+cd packages/demo/
+
+# prodction/development build or start server
+yarn prod
+yarn dev
+yarn start
+
+# start websocket 
+yarn websocket
+```
+
+and you can run the same for dashboard.
